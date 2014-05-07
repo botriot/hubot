@@ -122,6 +122,8 @@ If you would like to deploy to either a UNIX operating system or Windows.
 Please check out the [deploying hubot onto UNIX][deploy-unix] and
 [deploying hubot onto Windows][deploy-windows] wiki pages.
 
+
+
 [heroku-node-docs]: http://devcenter.heroku.com/articles/node-js
 [deploy-heroku]: https://github.com/github/hubot/blob/master/docs/deploying/heroku.md
 [deploy-unix]: https://github.com/github/hubot/blob/master/docs/deploying/unix.md
@@ -139,7 +141,7 @@ UI.
     % heroku config:set HUBOT_CAMPFIRE_TOKEN="..."
 
 Get the numeric IDs of the rooms you want the bot to join, comma delimited. If
-you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42` 
+you want the bot to connect to `https://mysubdomain.campfirenow.com/room/42`
 and `https://mysubdomain.campfirenow.com/room/1024` then you'd add it like this:
 
     % heroku config:set HUBOT_CAMPFIRE_ROOMS="42,1024"
