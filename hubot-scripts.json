@@ -1,4 +1,4 @@
 [
-  "redis-brain.coffee",
-  "walmart.coffee"
+  "walmart.coffee",
+  "hubot-redis-brain"
 ]
