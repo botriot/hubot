@@ -25,6 +25,7 @@
     "hubot-foursquare-locator": "^1.2.0",
     "hubot-google-images": "^0.1.5",
     "hubot-google-translate": "^0.2.0",
+    "hubot-markov": "^1.4.0",
     "hubot-plusplus": "^1.1.5",
     "hubot-redis-brain": ">= 0.0.3",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",

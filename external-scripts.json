@@ -2,6 +2,7 @@
   "hubot-foursquare-locator",
   "hubot-google-images",
   "hubot-google-translate",
+  "hubot-markov",
   "hubot-plusplus",
   "hubot-redis-brain",
   "hubot-youtube"
