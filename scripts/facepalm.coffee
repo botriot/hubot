@@ -24,7 +24,7 @@ module.exports = (robot) ->
 
 facepalmMe = (msg, cb) ->
   msg.http('http://facepalm.org/img.php').get() (err, res, body) ->
-    cb "http://facepalm.org/#{res.headers['location']}#.png"
+    cb "http://facepalm.org/#{res.headers['location']}"
 
 imageMe = (msg, query, cb) ->
   msg.http('http://ajax.googleapis.com/ajax/services/search/images')
@@ -34,4 +34,4 @@ imageMe = (msg, query, cb) ->
       images = images.responseData.results
       if images.length > 0
         image  = msg.random images
-        cb "#{image.unescapedUrl}#.png"
+        cb "#{image.unescapedUrl}"
