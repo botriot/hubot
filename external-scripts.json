@@ -1,4 +1,6 @@
 [
+  "hubot-google-images",
+  "hubot-plusplus",
   "hubot-redis-brain",
-  "hubot-plusplus"
+  "hubot-youtube"
 ]
