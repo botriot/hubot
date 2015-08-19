@@ -1,9 +1,10 @@
 # Description
-#  Slack Stars
+#  Slack Reactions
 #
 # Commands:
-#   hubot star me -1year    - Show a random star from a year ago today
-#   hubot star me @somebody - Show a somebody star
+#   hubot react me -1year    - Show a random reaction from a year ago today
+#   hubot react me @somebody - Show a message from someone with reactions
+#   hubot react me :star:    - Show a message with :star: reactions
 
 require 'datejs'
 
@@ -15,7 +16,11 @@ module.exports = (robot) ->
     terms = []
 
     for arg in args
+
       if arg.match(/^(today|yesterday|week|month|year)/)
+        on_date = arg
+
+      else if arg.match(/^(-|\d|)/)
         try
           if (parts = arg.split('+-')) and parts.length > 1
             date = Date.parse parts[0]
@@ -49,6 +54,7 @@ module.exports = (robot) ->
 
       else
         terms.push(arg)
+
     q = ""
     if reaction
       q += "has:#{reaction}"
@@ -58,7 +64,10 @@ module.exports = (robot) ->
       q += "has::zap:"
     else
       q += "has:reaction"
+
     q += " from:#{user}" if user
+    q += " on:#{on_date}" if on_date
+    q += " during:#{date.toString('yyyy-MM-dd')}" if date
     q += " #{terms.join(" ")}" if terms.length > 0
 
     msg
