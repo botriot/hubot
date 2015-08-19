@@ -30,7 +30,7 @@
     "hubot-redis-brain": ">= 0.0.3",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "^3.3.0",
-    "hubot-slack-reactions": "0.0.1",
+    "hubot-slack-reactions": "^0.0.2",
     "hubot-youtube": "^1.0.1",
     "npm": "^2.13.5"
   },
