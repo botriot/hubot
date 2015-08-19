@@ -21,7 +21,6 @@
     "url": "https://github.com/github/hubot.git"
   },
   "dependencies": {
-    "datejs": "0.0.2",
     "hubot": ">= 2.6.0 < 3.0.0",
     "hubot-foursquare-locator": "^1.2.0",
     "hubot-google-images": "^0.1.5",
@@ -31,6 +30,7 @@
     "hubot-redis-brain": ">= 0.0.3",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "^3.3.0",
+    "hubot-slack-reactions": "0.0.1",
     "hubot-youtube": "^1.0.1",
     "npm": "^2.13.5"
   },
