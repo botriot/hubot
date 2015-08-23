@@ -5,6 +5,7 @@
   "hubot-markov",
   "hubot-plusplus",
   "hubot-redis-brain",
+  "hubot-rubygems-search",
   "hubot-slack-reactions",
   "hubot-youtube"
 ]

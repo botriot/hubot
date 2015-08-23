@@ -28,6 +28,7 @@
     "hubot-markov": "^1.4.0",
     "hubot-plusplus": "^1.1.5",
     "hubot-redis-brain": ">= 0.0.3",
+    "hubot-rubygems-search": ">= 0.2.0",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "^3.3.0",
     "hubot-slack-reactions": ">=0.0.4",
