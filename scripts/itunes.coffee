@@ -19,11 +19,8 @@ module.exports = (robot) ->
         return msg.send "No tracks found." if songs.resultCount == 0
         track = songs.results[0]
 
-        if robot.adapterName == "slack"
-          msg.send track.trackViewUrl
-          msg.send "*#{track.trackName}*"
-        else
-          msg.send track.artworkUrl100
-          msg.send "*#{track.trackName}*"
-          msg.send "#{track.artistName} — #{track.collectionName}"
+        msg.send track.trackViewUrl
+        msg.send track.artworkUrl100 unless robot.adapterName == "slack"
+        msg.send "*#{track.trackName}*"
+        msg.send "#{track.artistName} — #{track.collectionName}"
         msg.send track.previewUrl
