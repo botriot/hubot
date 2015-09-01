@@ -33,7 +33,8 @@
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "^3.3.0",
     "hubot-slack-reactions": ">=0.0.4",
-    "hubot-youtube": "^1.0.1"
+    "hubot-youtube": "^1.0.1",
+    "underscore": ">=1.8.3"
   },
   "engines": {
     "node": ">= 0.8.x",
