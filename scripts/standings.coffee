@@ -35,14 +35,12 @@ module.exports = (robot) ->
           .sortBy("rank")
           .sortBy((s) -> s.team.toUpperCase())
 
-        sender = msg.message.user
-        room = robot.rooms[sender.room]
-
         robot.emit 'slack-attachment',
-          channel: room
-          fallback: "Hello"
+          message: msg.message
           content:
-            color: "d96b38",
+            text: "Attachement Demo Text"
+            fallback: "Fallback Text"
+            pretext: "This is Pretext"
             fields: [{
                 title: "Status Change",
                 value: "hi"
