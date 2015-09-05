@@ -53,11 +53,15 @@ module.exports = (robot) ->
           }
         ]
 
-        group_name = $("#ysf-page-header h1").text()
+
+        group_name = $("#ysf-page-header h1").contents()[0].data.replace /\s$/, ''
+        game_date = $("#progress-bar .game-dates.game-start").text()
 
         robot.emit 'slack-attachment',
           message: msg.message
           content:
-            text: "Standings for the <#{yf_pickem_group_url}|#{group_name}> Pro Football Pick'em"
-            fallback: "Fallback Text"
+            title: "Standings for the #{group_name} Pro Football Pick'em",
+            title_link: yf_pickem_group_url,
+            text: "The next game is #{game_date}"
+            fallback: "Standings for the <#{yf_pickem_group_url}|#{group_name}> Pro Football Pick'em"
             fields: fields
