@@ -41,7 +41,13 @@ module.exports = (robot) ->
             text: "Attachement Demo Text"
             fallback: "Fallback Text"
             pretext: "This is Pretext"
-            fields: [{
-                title: "Status Change",
-                value: "hi"
-            }]
+            fields: [
+              {
+                title: "Rank",
+                value: "1\n2\n3\n4\n5"
+              },
+              {
+                title: "Team",
+                value: "Jon\nHarry\nMike\nFrank\nWade"
+              }
+            ]
