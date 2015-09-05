@@ -44,10 +44,12 @@ module.exports = (robot) ->
             fields: [
               {
                 title: "Rank",
-                value: "1\n2\n3\n4\n5"
+                value: "1\n2\n3\n4\n5",
+                short: true
               },
               {
                 title: "Team",
-                value: "Jon\nHarry\nMike\nFrank\nWade"
+                value: "Jon\nHarry\nMike\nFrank\nWade",
+                short: true
               }
             ]
