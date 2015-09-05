@@ -33,7 +33,7 @@ module.exports = (robot) ->
         standings = _(standings)
           .chain()
           .sortBy("rank")
-          .sortBy((s) -> s.team.toUpperCase())
+          .sortBy((s) -> s.team.toUpperCase()).value()
 
         fields = [
           {
@@ -43,22 +43,22 @@ module.exports = (robot) ->
           },
           {
             title: "Team",
-            value: "Jon\nHarry\nMike\nFrank\nWade",
+            value: _.map(standings, (s) -> "#{s.team}").join("\n"),
             short: true
           },
           {
             title: "Points",
-            value: "Jon\nHarry\nMike\nFrank\nWade",
+            value: _.map(standings, (s) -> "#{s.points}").join("\n"),
             short: true
           },
           {
             title: "Wins",
-            value: "Jon\nHarry\nMike\nFrank\nWade",
+            value: _.map(standings, (s) -> "#{s.wins}").join("\n"),
             short: true
           },
           {
             title: "Loss",
-            value: "Jon\nHarry\nMike\nFrank\nWade",
+            value: _.map(standings, (s) -> "#{s.loss}").join("\n"),
             short: true
           },
         ]
