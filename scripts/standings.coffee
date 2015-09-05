@@ -9,6 +9,7 @@ module.exports = (robot) ->
     {
       rank: tr.find(".rank").text(),
       team: tr.find(".team-name").text(),
+      team_url: "http://football.fantasysports.yahoo.com" + tr.find(".team a").attr('href'),
       points: tr.find(".totalpoints:not(.last)").text(),
       wins: tr.find(".totalpoints.last").text().split("-")[0],
       loss: tr.find(".totalpoints.last").text().split("-")[1]
@@ -38,7 +39,7 @@ module.exports = (robot) ->
         fields = [
           {
             title: "Rank",
-            value: _.map(standings, (s) -> "#{s.rank} #{s.team}").join("\n"),
+            value: _.map(standings, (s) -> "#{s.rank} <#{s.team_url}|#{s.team}>").join("\n"),
             short: true
           },
           {
