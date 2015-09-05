@@ -5,18 +5,22 @@ _ = require "underscore"
 
 module.exports = (robot) ->
 
+  yf_url = "http://football.fantasysports.yahoo.com"
+  yf_pickem_group_id = 35306
+  yf_pickem_group_url = "#{yf_url}/pickem/#{yf_pickem_group_id}"
+
   serializeRow = (tr) ->
     {
       rank: tr.find(".rank").text(),
       team: tr.find(".team-name").text(),
-      team_url: "http://football.fantasysports.yahoo.com" + tr.find(".team a").attr('href'),
+      team_url: yf_url + tr.find(".team a").attr('href'),
       points: tr.find(".totalpoints:not(.last)").text(),
       wins: tr.find(".totalpoints.last").text().split("-")[0],
       loss: tr.find(".totalpoints.last").text().split("-")[1]
     }
 
   robot.respond /standings/i, (msg) ->
-    robot.http("http://football.fantasysports.yahoo.com/pickem/35306")
+    robot.http(yf_pickem_group_url)
       .headers({
         # no yahoo api for this so idk?
         "Cookie": process.env.YAHOO_ACCESS_COOKIE
@@ -49,10 +53,11 @@ module.exports = (robot) ->
           }
         ]
 
+        group_name = $("#ysf-page-header h1").text()
+
         robot.emit 'slack-attachment',
           message: msg.message
           content:
-            text: "Attachement Demo Text"
+            text: "Standings for the <#{yf_pickem_group_url}|#{group_name}> Pro Football Pick'em"
             fallback: "Fallback Text"
-            pretext: "This is Pretext"
             fields: fields
