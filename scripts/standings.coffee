@@ -35,21 +35,38 @@ module.exports = (robot) ->
           .sortBy("rank")
           .sortBy((s) -> s.team.toUpperCase())
 
+        fields = [
+          {
+            title: "Rank",
+            value: _.map(standings, (s) -> "#{s.rank}").join("\n"),
+            short: true
+          },
+          {
+            title: "Team",
+            value: "Jon\nHarry\nMike\nFrank\nWade",
+            short: true
+          },
+          {
+            title: "Points",
+            value: "Jon\nHarry\nMike\nFrank\nWade",
+            short: true
+          },
+          {
+            title: "Wins",
+            value: "Jon\nHarry\nMike\nFrank\nWade",
+            short: true
+          },
+          {
+            title: "Loss",
+            value: "Jon\nHarry\nMike\nFrank\nWade",
+            short: true
+          },
+        ]
+
         robot.emit 'slack-attachment',
           message: msg.message
           content:
             text: "Attachement Demo Text"
             fallback: "Fallback Text"
             pretext: "This is Pretext"
-            fields: [
-              {
-                title: "Rank",
-                value: "1\n2\n3\n4\n5",
-                short: true
-              },
-              {
-                title: "Team",
-                value: "Jon\nHarry\nMike\nFrank\nWade",
-                short: true
-              }
-            ]
+            fields: fields
