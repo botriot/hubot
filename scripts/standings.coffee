@@ -60,8 +60,9 @@ module.exports = (robot) ->
         robot.emit 'slack-attachment',
           message: msg.message
           content:
-            title: "Standings for the #{group_name} Pro Football Pick'em",
-            title_link: yf_pickem_group_url,
+            title: group_name
+            title_link: yf_pickem_group_url
             text: "The next game is #{game_date}"
+            pretext: "Standings for the 2015 Pro Football Pick'em"
             fallback: "Standings for the <#{yf_pickem_group_url}|#{group_name}> Pro Football Pick'em"
             fields: fields
