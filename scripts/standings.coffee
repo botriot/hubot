@@ -38,29 +38,14 @@ module.exports = (robot) ->
         fields = [
           {
             title: "Rank",
-            value: _.map(standings, (s) -> "#{s.rank}").join("\n"),
-            short: true
-          },
-          {
-            title: "Team",
-            value: _.map(standings, (s) -> "#{s.team}").join("\n"),
+            value: _.map(standings, (s) -> "#{s.rank} #{s.team}").join("\n"),
             short: true
           },
           {
             title: "Points",
-            value: _.map(standings, (s) -> "#{s.points}").join("\n"),
+            value: _.map(standings, (s) -> "#{s.points} (#{s.wins}-#{s.loss})").join("\n"),
             short: true
-          },
-          {
-            title: "Wins",
-            value: _.map(standings, (s) -> "#{s.wins}").join("\n"),
-            short: true
-          },
-          {
-            title: "Loss",
-            value: _.map(standings, (s) -> "#{s.loss}").join("\n"),
-            short: true
-          },
+          }
         ]
 
         robot.emit 'slack-attachment',
