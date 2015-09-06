@@ -6,7 +6,7 @@
 #   hubot define -u <word> - Will get the urbandictionary definition of a word
 #
 # Author:
-#   Jon Rohan <jon@jonrohan.me>
+#   Jon Rohan <yes@jonrohan.codes>
 
 
 module.exports = (robot) ->
