@@ -37,8 +37,9 @@ module.exports = (robot) ->
 
         standings = _(standings)
           .chain()
+          .sortBy((s) -> s.team.toUpperCase())
           .sortBy("rank")
-          .sortBy((s) -> s.team.toUpperCase()).value()
+          .value()
 
         fields = [
           {
