@@ -32,7 +32,7 @@
     "hubot-rubygems-search": ">= 0.2.2",
     "hubot-scripts": ">= 2.5.0 < 3.0.0",
     "hubot-slack": "^3.4.0",
-    "hubot-slack-reactions": ">=0.0.4",
+    "hubot-slack-reactions": ">=0.2.0",
     "hubot-youtube": "^1.0.1",
     "underscore": ">=1.8.3",
     "cheerio": ">=0.19.0"
