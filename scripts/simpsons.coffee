@@ -5,17 +5,15 @@ module.exports = (robot) ->
     msg.http("https://frinkiac.com/api/search?q=#{encodeURIComponent(query)}")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
+        return msg.send "Glaven! Simpsons api down!" if err
         try
           json = JSON.parse(body)
-          console.log err, json
           return msg.send "Nothing found. Try again, for glaven out loud!" unless json && json.length > 0
           episode = json.reverse().pop()
-          console.log episode
-          url = "https://frinkiac.com/api/caption?e=#{episode.Episode}&t=#{episode.Timestamp}"
-          console.log url
-          msg.http(url)
+          msg.http("https://frinkiac.com/api/caption?e=#{episode.Episode}&t=#{episode.Timestamp}")
             .header('Accept', 'application/json')
             .get() (err, res, body) ->
+              return msg.send "Glaven! Simpsons api down!" if err
               try
                 json = JSON.parse(body)
                 return msg.send "Nothing found. Try again, for glaven out loud!" unless json && json.Subtitles
@@ -32,6 +30,6 @@ module.exports = (robot) ->
                   caption += "#{formatted}\n"
                 msg.send("https://frinkiac.com/meme/#{subtitle.Episode}/#{episode.Timestamp}.jpg?lines=#{encodeURIComponent(caption.trim())}")
               catch error
-                return msg.send "Glaven! Simpsons api down! #{error}"
+                return msg.send "Glaven! Simpsons api down!"
         catch error
-          return msg.send "Glaven! Simpsons api down! #{error}"
+          return msg.send "Glaven! Simpsons api down!"
