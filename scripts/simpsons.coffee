@@ -7,14 +7,14 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
-          return msg.send "Nothing found. Try again, for glaven out loud!" unless json.length > 0
+          return msg.send "Nothing found. Try again, for glaven out loud!" unless json && json.length > 0
           episode = json.reverse().pop()
           msg.http("https://frinkiac.com/api/caption?e=#{episode.Episode}&t=#{episode.Timestamp}")
             .header('Accept', 'application/json')
             .get() (err, res, body) ->
               try
                 json = JSON.parse(body)
-                return msg.send "Nothing found. Try again, for glaven out loud!" unless json.Subtitles
+                return msg.send "Nothing found. Try again, for glaven out loud!" unless json && json.Subtitles
                 caption = ""
                 for subtitle in json.Subtitles
                   formatted = ""
