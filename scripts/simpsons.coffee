@@ -7,7 +7,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         try
           json = JSON.parse(body)
-          console.log json
+          console.log err, json
           return msg.send "Nothing found. Try again, for glaven out loud!" unless json && json.length > 0
           episode = json.reverse().pop()
           console.log episode
