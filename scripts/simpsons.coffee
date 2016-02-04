@@ -21,13 +21,13 @@ module.exports = (robot) ->
                   length = 0
                   for word in subtitle.Content.split(" ")
                     formatted += "#{word} "
-                    length = formatted.length
-                    if length >= 20
+                    length += word.length
+                    if length >= 15
                       formatted += "\n"
                       length = 0
                   caption += "#{formatted}\n"
                 msg.send("https://frinkiac.com/meme/#{subtitle.Episode}/#{episode.Timestamp}.jpg?lines=#{encodeURIComponent(caption.trim())}")
               catch error
-                return msg.send "Glaven! Simpsons api down!"
+                return msg.send "Glaven! Simpsons api down! #{error}"
         catch error
-          return msg.send "Glaven! Simpsons api down!"
+          return msg.send "Glaven! Simpsons api down! #{error}"
