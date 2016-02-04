@@ -16,7 +16,7 @@ module.exports = (robot) ->
                 json = JSON.parse(body)
                 return msg.send "Nothing found. Try again, for glaven out loud!" unless json.Subtitles
                 subtitle = json.Subtitles.pop()
-                msg.send("https://frinkiac.com/meme/#{subtitle.Episode}/#{episode.Timestamp}.jpg?lines=#{subtitle.Content}")
+                msg.send("https://frinkiac.com/meme/#{subtitle.Episode}/#{episode.Timestamp}.jpg?lines=#{encodeURIComponent(subtitle.Content)}")
               catch error
                 return msg.send "Glaven! Simpsons api down!"
         catch error
