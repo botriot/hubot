@@ -2,7 +2,7 @@
 module.exports = (robot) ->
   robot.hear /simpsons( me)? (.+)/, (msg) ->
     query = msg.match[2]
-    msg.http("https://frinkiac.com/api/search?q=#{query}")
+    msg.http("https://frinkiac.com/api/search?q=#{encodeURIComponent(query)}")
       .header('Accept', 'application/json')
       .get() (err, res, body) ->
         try
