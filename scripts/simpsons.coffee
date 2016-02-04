@@ -14,7 +14,7 @@ module.exports = (robot) ->
             .get() (err, res, body) ->
               try
                 json = JSON.parse(body)
-                return msg.send "Nothing found. Try again, for glaven out loud!" unless json.length > 0
+                return msg.send "Nothing found. Try again, for glaven out loud!" unless json.Subtitles
                 subtitle = json.Subtitles.pop()
                 msg.send("https://frinkiac.com/meme/#{subtitle.Episode}/#{episode.Timestamp}.jpg?lines=#{subtitle.Content}")
               catch error
